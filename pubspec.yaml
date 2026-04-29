@@ -1,0 +1,26 @@
+name: quarks_footer
+description: Un footer estandarizado y elegante para los proyectos de Quarks Studio.
+version: 1.0.0
+homepage: https://quarks-studio.com
+
+environment:
+  sdk: ^3.11.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  font_awesome_flutter: ^11.0.0
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/isotipo.png
+
