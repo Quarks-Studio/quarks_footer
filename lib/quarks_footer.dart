@@ -25,7 +25,7 @@ class QuarksFooter extends StatelessWidget {
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
         spacing: 32,
-        runSpacing: 12,
+        runSpacing: 16,
         children: [
           Row(
             mainAxisSize: MainAxisSize.min,
@@ -59,21 +59,19 @@ class QuarksFooter extends StatelessWidget {
             ],
           ),
 
-          _ContactItem(
-            icon: Icons.email_outlined,
-            text: 'consultas@quarks-studio.com',
-            onTap: () => _launchURL('mailto:consultas@quarks-studio.com'),
-          ),
-
-          _ContactItem(
-            icon: Icons.phone_outlined,
-            text: '11 5855-7593',
-            onTap: () => _launchURL('tel:+5491158557593'),
-          ),
-
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
+              _SocialIcon(
+                icon: FontAwesomeIcons.envelope,
+                onTap: () => _launchURL('mailto:consultas@quarks-studio.com'),
+              ),
+              const SizedBox(width: 16),
+              _SocialIcon(
+                icon: FontAwesomeIcons.whatsapp,
+                onTap: () => _launchURL('https://wa.me/5491158557593'),
+              ),
+              const SizedBox(width: 16),
               _SocialIcon(
                 icon: FontAwesomeIcons.instagram,
                 onTap: () =>
@@ -94,43 +92,6 @@ class QuarksFooter extends StatelessWidget {
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _ContactItem extends StatelessWidget {
-  final IconData icon;
-  final String text;
-  final VoidCallback onTap;
-
-  const _ContactItem({
-    required this.icon,
-    required this.text,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      child: GestureDetector(
-        onTap: onTap,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(icon, size: 15, color: Colors.grey.shade400),
-            const SizedBox(width: 6),
-            Text(
-              text,
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey.shade300,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
