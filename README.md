@@ -23,3 +23,44 @@ dependencies:
     git:
       url: https://github.com/Quarks-Studio/quarks_footer.git
       ref: main
+```
+
+## Uso
+
+Importa el paquete y añade el widget `QuarksFooter` en tu `Scaffold`. La forma más sencilla de implementarlo es en la propiedad `bottomNavigationBar`:
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:quarks_footer/quarks_footer.dart';
+
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF1E1E1E),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height,
+              child: const Center(
+                child: Text(
+                  "Bienvenido a Quarks Studio",
+                  style: TextStyle(color: Colors.white, fontSize: 32),
+                ),
+              ),
+            ),
+
+            // Llamada al Footer de la librería
+            const QuarksFooter(),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+
