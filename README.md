@@ -21,5 +21,5 @@ dependencies:
     sdk: flutter
   quarks_footer:
     git:
-      url: [https://github.com/Quarks-Studio/quarks_footer.git](https://github.com/Quarks-Studio/quarks_footer.git)
+      url: https://github.com/Quarks-Studio/quarks_footer.git
       ref: main
