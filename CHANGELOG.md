@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.0
+
+* **Se cambiaron:** el mail y numero de telefono por unicamnete emojis.
+
 ## 1.0.0
 
 * **Lanzamiento inicial (Initial release):** Creación del paquete `quarks_footer`.
