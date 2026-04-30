@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+
+* **Parámetros opcionales:** Agregados `textColor` y `backgroundColor` para personalizar los colores del texto y fondo del footer.
+
 ## 1.1.0
 
 * **Se cambiaron:** el mail y numero de telefono por unicamnete emojis.

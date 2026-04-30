@@ -3,7 +3,14 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class QuarksFooter extends StatelessWidget {
-  const QuarksFooter({super.key});
+  final Color textColor;
+  final Color backgroundColor;
+
+  const QuarksFooter({
+    super.key,
+    this.textColor = Colors.white,
+    this.backgroundColor = const Color(0xFF121212),
+  });
 
   Future<void> _launchURL(String url) async {
     final uri = Uri.parse(url);
@@ -14,12 +21,16 @@ class QuarksFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final secondaryTextColor = textColor.withValues(alpha: 0.7);
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(color: Colors.grey.shade800)),
-        color: const Color(0xFF121212),
+        border: Border(
+          top: BorderSide(color: textColor.withValues(alpha: 0.1)),
+        ),
+        color: backgroundColor,
       ),
       child: Wrap(
         alignment: WrapAlignment.center,
@@ -35,51 +46,54 @@ class QuarksFooter extends StatelessWidget {
                 package: 'quarks_footer',
                 height: 26,
                 errorBuilder: (context, error, stackTrace) =>
-                    const Icon(Icons.science, size: 26, color: Colors.white),
+                    Icon(Icons.science, size: 26, color: textColor),
               ),
               const SizedBox(width: 10),
               Text(
                 'Desarrollado por ',
-                style: TextStyle(fontSize: 12, color: Colors.grey.shade400),
+                style: TextStyle(fontSize: 12, color: secondaryTextColor),
               ),
               MouseRegion(
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: () => _launchURL('https://quarks-studio.com'),
-                  child: const Text(
+                  child: Text(
                     'Quarks Studio',
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: textColor,
                     ),
                   ),
                 ),
               ),
             ],
           ),
-
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               _SocialIcon(
                 icon: FontAwesomeIcons.envelope,
+                color: secondaryTextColor,
                 onTap: () => _launchURL('mailto:consultas@quarks-studio.com'),
               ),
               const SizedBox(width: 16),
               _SocialIcon(
                 icon: FontAwesomeIcons.whatsapp,
+                color: secondaryTextColor,
                 onTap: () => _launchURL('https://wa.me/5491158557593'),
               ),
               const SizedBox(width: 16),
               _SocialIcon(
                 icon: FontAwesomeIcons.instagram,
+                color: secondaryTextColor,
                 onTap: () =>
                     _launchURL('https://www.instagram.com/quarksstudioapps/'),
               ),
               const SizedBox(width: 16),
               _SocialIcon(
                 icon: FontAwesomeIcons.linkedinIn,
+                color: secondaryTextColor,
                 onTap: () => _launchURL(
                   'https://www.linkedin.com/company/quarksstudio/?viewAsMember=true',
                 ),
@@ -87,6 +101,7 @@ class QuarksFooter extends StatelessWidget {
               const SizedBox(width: 16),
               _SocialIcon(
                 icon: FontAwesomeIcons.globe,
+                color: secondaryTextColor,
                 onTap: () => _launchURL('https://quarks-studio.com'),
               ),
             ],
@@ -100,8 +115,13 @@ class QuarksFooter extends StatelessWidget {
 class _SocialIcon extends StatelessWidget {
   final dynamic icon;
   final VoidCallback onTap;
+  final Color color;
 
-  const _SocialIcon({required this.icon, required this.onTap});
+  const _SocialIcon({
+    required this.icon,
+    required this.onTap,
+    required this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +129,7 @@ class _SocialIcon extends StatelessWidget {
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: onTap,
-        child: FaIcon(icon, size: 16, color: Colors.grey.shade300),
+        child: FaIcon(icon, size: 16, color: color),
       ),
     );
   }

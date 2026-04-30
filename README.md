@@ -63,4 +63,18 @@ class HomePage extends StatelessWidget {
 }
 ```
 
+## Personalización
 
+El widget `QuarksFooter` permite personalizar los colores del texto y del fondo mediante los parámetros opcionales:
+
+* `textColor`: Color del texto principal y de los iconos. Por defecto es `Colors.white`.
+* `backgroundColor`: Color de fondo del footer. Por defecto es `Color(0xFF121212)`.
+
+Ejemplo de uso con personalización:
+
+```dart
+const QuarksFooter(
+  textColor: Colors.blue,
+  backgroundColor: Colors.grey[900]!,
+),
+```
